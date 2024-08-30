@@ -19,7 +19,7 @@ const ImagesSlide = ({ item }: any) => {
     };
     return (
         <section className="relative pb-10">
-            <div className="md:max-w-[50%]">
+            <div className="md:max-w-[50%] max-w-[94%]">
                 <div className="slider-container ml-8">
                     <Slider {...settings}>
                         {item.images.length > 1 ? (
