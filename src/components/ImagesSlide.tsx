@@ -25,7 +25,7 @@ const ImagesSlide = ({ item }: any) => {
                         {item.images.length > 1 ? (
                             item.images.map((elem: any, ind: number) => (
                                 <div key={ind} className="h-[140px] w-[140px] py-4">
-                                    <Image src={elem} alt="img" width={300} height={300} className="w-full h-[140px] object-contain" />
+                                    <Image src={elem} alt="img" width={300} height={300} className="w-full h-full object-contain" />
                                 </div>
                             ))
                         ) : (
