@@ -74,7 +74,7 @@ const Header = () => {
               </Link>
             </p>
             <p className='after:absolute after:contents-[""] after:top-0 after:left-36 after:right-0 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
-              <Link href="/">{name}</Link>{" "}
+              <Link href="/">{name}</Link>
               {menuOpenTo ? (
                 <ExpandLessIcon
                   onClick={handleMenuTo}

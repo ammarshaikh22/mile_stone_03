@@ -36,7 +36,7 @@ const PaymentFooter = () => {
               <span className='text-sm font-bold'>Download App on Mobile</span>
               <p className='text-xs'>Free home delivery on your first purchase</p>
             </div>
-            <div className='flex gap-2'>``
+            <div className='flex gap-2'>
               <Image src='/app-store-1.png' alt='cards' width={150} height={30} />
               <Image src='/app-store-2.png' alt='cards' width={150} height={30} />
             </div>

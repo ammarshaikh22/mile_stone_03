@@ -25,7 +25,7 @@ const Product1 = () => {
                 </div>
                 <div className='relative'>
                   <button className='absolute bottom-6 rounded-md left-0 right-0 mx-auto bg-white w-[140px] h-[45px] hover:bg-black hover:text-white'>
-                    <Link href='/'>{elem.productName}</Link>
+                    <Link href='/shop-detail'>{elem.productName}</Link>
                   </button>
                 </div>
               </div>

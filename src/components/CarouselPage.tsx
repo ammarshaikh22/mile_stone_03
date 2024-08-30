@@ -4,7 +4,7 @@ import CarouselCard from './Carousel'
 const CarouselPage = () => {
     return (
         <section className='relative py-10'>
-            <div className='max-w-[86%] mx-auto'>
+            <div className=' max-w-[96%] md:max-w-[86%] mx-auto'>
                 <div className='flex justify-center'>
                     <CarouselCard />
                 </div>

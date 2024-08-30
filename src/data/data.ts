@@ -1,4 +1,5 @@
 import { CarouselData, FashionRevolutionType, FooterData, MenuList, Policies, Product } from "@/types/interface";
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 export const menuList: MenuList[] = [
     {
         id: 1,
@@ -153,18 +154,60 @@ export const fashionRevolution: FashionRevolutionType[] = [
         id: 1,
         img: "/shirt.png",
         heading: "Western Fashion",
-        sub:"When not in front of her computer screen croix wine in hand or in front of a mirror"
+        sub: "When not in front of her computer screen croix wine in hand or in front of a mirror"
     },
     {
         id: 2,
         img: "/leaf.png",
         heading: "Fresh & Comfort",
-        sub:"When not in front of her computer screen croix wine in hand or in front of a mirror"
+        sub: "When not in front of her computer screen croix wine in hand or in front of a mirror"
     },
     {
         id: 3,
         img: "/bow.png",
         heading: "Cotton & Fabric",
-        sub:"When not in front of her computer screen croix wine in hand or in front of a mirror"
+        sub: "When not in front of her computer screen croix wine in hand or in front of a mirror"
     },
 ]
+
+export const menuData = ["Default", "Popular", "New", "Discounted", "Trending", "Featured"]
+
+
+export const filtrationMenu = [
+    {
+        id: 1,
+        name: "Category",
+        options: [
+            "Beauty",
+            "Fragrances",
+            "Furniture",
+            "Groceries",
+            "Home-decoration",
+            "Kitchen-accessories",
+            "Laptops",
+            "Mens-shirts",
+            "Mens-shoes",
+            "Mens-watches",
+            "Mobile-accessories",
+            "Motorcycle",
+            "Skin-care",
+            "Smartphones",
+            "Sports-accessories",
+            "Sunglasses",
+            "Tablets",
+            "Tops",
+            "Vehicle",
+            "Womens-bags",
+            "Womens-dresses",
+            "Womens-jewellery",
+            "Womens-shoes",
+            "Womens-watches"
+        ]
+    },
+    {
+        id: 2,
+        name: "Rating",
+        options: ["Rating of 5","Rating of 4","Rating of 3","Rating of 2","Rating of 1"]
+    }
+]
+

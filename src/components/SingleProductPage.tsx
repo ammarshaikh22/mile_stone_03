@@ -1,11 +1,59 @@
-import React from 'react'
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Import star icons from react-icons
+import Button from './Button';
+import RatingStar from './RatingStar';
 
 const SingleProductPage = ({ item }: any) => {
+    const [counter, setCounter] = useState(0)
+    if (!item || !Array.isArray(item.images)) {
+        console.error('Item or images array is undefined or not an array');
+        return null;
+    }
     return (
-        <section className='relative'>
-            <h1>{item.title}</h1>
+        <section className='relative mt-32 mb-10'>
+            <div className='max-w-[92%]  md:max-w-[96%] mx-auto'>
+                <div className='flex gap-10 md:flex-row flex-col'>
+                    <div className='md:w-[50%] bg-[#F4F4F5] flex items-center justify-center h-[650px] py-6'>
+                        <Image src={item.images[0]} alt='img' width={500} height={500} className='w-full h-full object-contain' />
+                    </div>
+                    <div className='md:w-[50%]'>
+                        <div className='max-w-[95%]'>
+                            <h3 className='text-4xl mb-3 font-semibold'>{item.title}</h3>
+                            <h4 className='text-2xl font-semibold mb-2'>$ {item.price}</h4>
+                            <RatingStar item={item} title='Rating' />
+                            <p className='text-gray-400 mt-6 mb-10'>Brand: <span className='text-green-600'>{item.brand ? item.brand : 'No Brand'}</span></p>
+                            <p>{item.description}</p>
+                        </div>
+                        <div className='flex mt-6 mb-8 gap-2'>
+                            <h6>Select Size : </h6>
+                            <div className='flex gap-2 items-center justify-center'>
+                                <button className='w-8 text-xs h-6 rounded-sm border border-black' type='button'>M</button>
+                                <button className='w-8 text-xs h-6 rounded-sm border border-black' type='button'>L</button>
+                                <button className='w-8 text-xs h-6 rounded-sm border border-black' type='button'>XL</button>
+                                <button className='w-8 text-xs h-6 rounded-sm border border-black' type='button'>XXL</button>
+                            </div>
+                        </div>
+                        <div className='flex gap-6'>
+                            <div className='relative'>
+                                <span className='cursor-pointer text-3xl text-gray-500 absolute top-3 right-3' onClick={() => setCounter(counter + 1)}>+</span>
+                                <button className='px-4 w-[140px] md:w-[160px] h-[60px] rounded-sm text-2xl border border-gray-400' >{counter}</button>
+                                <span className='cursor-pointer text-3xl text-gray-500 absolute top-3 left-4' onClick={() => {
+                                    if (counter <= 0) {
+                                        return
+                                    } else {
+                                        setCounter(counter - 1)
+                                    }
+                                }}>-</span>
+                            </div>
+                            <Button name='Add to Cart' className='px-4 w-[160px] md:w-[200px] h-[60px] text-white bg-black rounded-sm hover:text-black hover:bg-transparent border border-black font-semibold' link='/' />
+                        </div>
+                        <p className='mt-8'>{item.stock} Pieces Available</p>
+                    </div>
+                </div>
+            </div>
         </section>
-    )
+    );
 }
 
-export default SingleProductPage
+export default SingleProductPage;

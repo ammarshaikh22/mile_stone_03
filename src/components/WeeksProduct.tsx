@@ -29,7 +29,7 @@ const WeeksProduct = () => {
                             if (count >= 2) return
                             count++
                             return (
-                                <div key={elem.id} className='md:w-[50%] h-[250px] md:h-[280px] p-6 md:p-10 bg-[#F6F6F6] flex justify-center items-center md:gap-2'>
+                                <div key={elem.id} className='md:w-[50%] h-[250px] md:h-[280px] p-2 md:p-10 bg-[#F6F6F6] flex justify-center items-center md:gap-2'>
                                     <div>
                                         <h2 className='text-2xl md:text-4xl mb-2'>{elem.title}</h2>
                                         <span className='md:text-lg'>Start From : <span className='font-bold md:text-xl '>{elem.price + " " + "$"}</span></span>

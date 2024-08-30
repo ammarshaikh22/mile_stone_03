@@ -14,7 +14,6 @@ const CarouselCard = () => {
     const plugin = React.useRef(
         Autoplay({ delay: 2000, stopOnInteraction: true })
     )
-
     return (
         <Carousel className="w-full max-w-full" plugins={[plugin.current]}
             onMouseEnter={plugin.current.stop}

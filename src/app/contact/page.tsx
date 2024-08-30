@@ -1,11 +1,12 @@
-'use client'
+import Form from '@/components/Form'
+import MapSection from '@/components/MapSection'
 import StyleComp from '@/components/StyleComp'
-import React from 'react'
-
 const ContactPage = () => {
   return (
-      <main>
-          <StyleComp heading='Contact' />
+    <main>
+      <StyleComp heading='Contact' />
+      <Form />
+      <MapSection/>
     </main>
   )
 }
