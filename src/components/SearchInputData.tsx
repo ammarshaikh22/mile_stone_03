@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 
-const SearchInputData = () => {
+const SearchInputData = ({setMobileMenu}:any) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [products, setProducts] = useState([]);
     useEffect(() => {
@@ -42,6 +42,7 @@ const SearchInputData = () => {
                     <Link key={product.id} href={`/shop/${product.id.toString()}`} onClick={() => {
                         setProducts([])
                         setSearchTerm('')
+                        setMobileMenu(false)
                     }}>
                         <div className='flex items-center gap-2 my-6'>
                             <div className='w-[40%]'>

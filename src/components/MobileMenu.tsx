@@ -23,7 +23,7 @@ const MobileMenu = ({ setMobileMenu }: any) => {
                 <Image src="/logo.png" alt="logo" height={130} width={130} />
             </div>
             <div className="relative">
-                <SearchInputData />
+                <SearchInputData setMobileMenu={setMobileMenu} />
                 <div className="absolute top-3 right-4">
                     <SearchIcon className="text-2xl" />
                 </div>
@@ -37,7 +37,8 @@ const MobileMenu = ({ setMobileMenu }: any) => {
                         <AccordionTrigger>Shop</AccordionTrigger>
                         <AccordionContent>
                             <ul className='flex flex-col gap-4 ml-8'>
-                                <Link href="/shop-detail" onClick={() => setMobileMenu(false)}>Shop Detail</Link>
+                                <Link href="/shop" onClick={() => setMobileMenu(false)}>Shop</Link>
+                                <Link href="/shop/86" onClick={() => setMobileMenu(false)}>Shop Detail</Link>
                                 <Link href="/" onClick={() => setMobileMenu(false)}>WishList</Link>
                                 <Link href="/" onClick={() => setMobileMenu(false)}>Cart</Link>
                                 <Link href="/" onClick={() => setMobileMenu(false)}>Compare</Link>
