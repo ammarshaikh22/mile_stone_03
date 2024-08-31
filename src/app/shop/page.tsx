@@ -6,7 +6,7 @@ import React from 'react'
 const shopDetailPage = () => {
   return (
     <main>
-      <StyleComp heading='ShopDetails' />
+      <StyleComp heading='Shop' />
       <StaticData/>
     </main>
   )

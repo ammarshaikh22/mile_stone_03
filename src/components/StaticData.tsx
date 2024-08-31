@@ -52,7 +52,6 @@ const StaticData = () => {
                                     {
                                         menu ? <HeaderMenuOne
                                             names={menuData}
-
                                             fuc={takeNames}
                                             className={`absolute top-12 left-0 right-0 mx-auto w-full h-auto border rounded-md bg-white z-20`} />
                                             :
@@ -89,7 +88,7 @@ const StaticData = () => {
                                 filterData.map((elem: any) => {
                                     return (
                                         <div className='flex flex-col justify-center' key={elem.id}>
-                                            <Link href={`/shop-detail/${elem.id.toString()}`} >
+                                            <Link href={`/shop/${elem.id.toString()}`} >
                                                 <div className='bg-[#F4F4F4] md:w-[255px] w-full h-[330px] flex justify-center items-center'>
                                                     <Image src={elem.thumbnail} alt='img' width={500} height={500} />
                                                 </div>

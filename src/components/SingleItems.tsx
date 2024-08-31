@@ -58,7 +58,7 @@ const SingleItem = ({ url }: any) => {
           item.map((elem: any) => {
             return (
               <div key={elem.id} className="border-none mb-4">
-                <Link href={`/shop-detail/${elem.id.toString()}`} className="flex justify-center items-center">
+                <Link href={`/shop/${elem.id.toString()}`} className="flex justify-center items-center">
                   <Image src={elem.thumbnail} alt="img" width={300} height={300} />
                 </Link>
                 <div>

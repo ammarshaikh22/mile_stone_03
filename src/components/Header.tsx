@@ -14,6 +14,8 @@ import { ListMenu } from "./ListMenu";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import MobileMenu from "./MobileMenu";
+import { data1, data2 } from "@/data/data";
+import SearchInputData from "./SearchInputData";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +28,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -45,8 +46,6 @@ const Header = () => {
   const takeNamesTwo = (name: any) => {
     setName2(name);
   };
-  let data1 = ["English", "Hindi", "Arabic", "Urdu"];
-  let data2 = ["USD", "PKR", "GBP", "EUR"];
   return (
     <header
       className="relative"
@@ -126,11 +125,7 @@ const Header = () => {
               <ListMenu />
             </div>
             <div className="relative md:block hidden">
-              <input
-                type="text"
-                placeholder="Search Product..."
-                className="w-[240px] h-[40px] p-6 border"
-              />
+              <SearchInputData />
               <div className="absolute top-3 right-4">
                 <SearchIcon className="text-2xl" />
               </div>

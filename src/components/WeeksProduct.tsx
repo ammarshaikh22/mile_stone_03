@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ProductSlider from './ProductSlider'
 import fetchingData from '@/data/FetchingData'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const WeeksProduct = () => {
     const [item, setItem] = useState([])
@@ -34,7 +35,9 @@ const WeeksProduct = () => {
                                         <h2 className='text-2xl md:text-4xl mb-2'>{elem.title}</h2>
                                         <span className='md:text-lg'>Start From : <span className='font-bold md:text-xl '>{elem.price + " " + "$"}</span></span>
                                         <div className='mt-6'>
-                                            <button className='w-[120px] h-[40px] px-2 bg-transparent border-2 border-black rounded-sm hover:bg-black hover:text-white'>Shop Now</button>
+                                            <Link href={`/shop/${elem.id}`}>
+                                                <button className='w-[120px] h-[40px] px-2 bg-transparent border-2 border-black rounded-sm hover:bg-black hover:text-white'>Shop Now</button>
+                                            </Link>
                                         </div>
                                     </div>
                                     <div>

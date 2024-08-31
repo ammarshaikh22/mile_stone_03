@@ -211,3 +211,5 @@ export const filtrationMenu = [
     }
 ]
 
+export let data1 = ["English", "Hindi", "Arabic", "Urdu"];
+export let data2 = ["USD", "PKR", "GBP", "EUR"];

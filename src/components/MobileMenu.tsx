@@ -15,6 +15,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import Link from 'next/link';
+import SearchInputData from './SearchInputData';
 const MobileMenu = ({ setMobileMenu }: any) => {
     return (
         <div className='flex flex-col justify-start items-start gap-8 '>
@@ -22,11 +23,7 @@ const MobileMenu = ({ setMobileMenu }: any) => {
                 <Image src="/logo.png" alt="logo" height={130} width={130} />
             </div>
             <div className="relative">
-                <input
-                    type="text"
-                    placeholder="Search Product..."
-                    className="w-[240px] h-[40px] p-6 border"
-                />
+                <SearchInputData />
                 <div className="absolute top-3 right-4">
                     <SearchIcon className="text-2xl" />
                 </div>

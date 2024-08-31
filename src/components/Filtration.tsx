@@ -6,8 +6,8 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import fetchingData from "@/data/FetchingData";
-import SearchIcon from "@mui/icons-material/Search";
 import { filtrationMenu } from "@/data/data";
+import SearchInputData from "./SearchInputData";
 
 const Filtration = ({ setFilterData, setCount, className }: any) => {
     const [value, setValue] = useState("Mobile-accessories");
@@ -24,14 +24,7 @@ const Filtration = ({ setFilterData, setCount, className }: any) => {
     return (
         <div className={className}>
             <div className="mb-8 relative">
-                <input
-                    type="text"
-                    placeholder="Search Product..."
-                    className="w-[240px] h-[40px] p-6 border"
-                />
-                <div className="absolute top-3 right-14 md:right-4">
-                    <SearchIcon className="text-2xl" />
-                </div>
+                <SearchInputData />
             </div>
             <Accordion type="single" collapsible className="w-full">
                 {filtrationMenu.map((elem) => {
