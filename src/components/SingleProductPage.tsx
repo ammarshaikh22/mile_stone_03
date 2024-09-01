@@ -1,15 +1,20 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'; // Import star icons from react-icons
-import Button from './Button';
+import React, { useContext } from 'react';
 import RatingStar from './RatingStar';
+import { ThemeContext } from './ContextApi';
 
 const SingleProductPage = ({ item }: any) => {
-    const [counter, setCounter] = useState(0)
+    const { cart, setCart } = useContext(ThemeContext);
+
     if (!item || !Array.isArray(item.images)) {
         console.error('Item or images array is undefined or not an array');
         return null;
     }
+
+    const handleCard = () => {
+        setCart([...cart, { ...item, quantity: 1 }]);
+        console.log('Item added to cart');
+    };
     return (
         <section className='relative mt-32 mb-10'>
             <div className='max-w-[92%]  md:max-w-[96%] mx-auto'>
@@ -35,18 +40,12 @@ const SingleProductPage = ({ item }: any) => {
                             </div>
                         </div>
                         <div className='flex gap-6'>
-                            <div className='relative'>
-                                <span className='cursor-pointer text-3xl text-gray-500 absolute top-3 right-3' onClick={() => setCounter(counter + 1)}>+</span>
-                                <button className='px-4 w-[140px] md:w-[160px] h-[60px] rounded-sm text-2xl border border-gray-400' >{counter}</button>
-                                <span className='cursor-pointer text-3xl text-gray-500 absolute top-3 left-4' onClick={() => {
-                                    if (counter <= 0) {
-                                        return
-                                    } else {
-                                        setCounter(counter - 1)
-                                    }
-                                }}>-</span>
-                            </div>
-                            <Button name='Add to Cart' className='px-4 w-[160px] md:w-[200px] h-[60px] text-white bg-black rounded-sm hover:text-black hover:bg-transparent border border-black font-semibold' link='/' />
+                            <button
+                                className='px-4 w-[160px] md:w-[200px] h-[60px] text-white bg-black rounded-sm hover:text-black hover:bg-transparent border border-black font-semibold'
+                                onClick={handleCard}
+                            >
+                                Add to Cart
+                            </button>
                         </div>
                         <p className='mt-8'>{item.stock} Pieces Available</p>
                     </div>
@@ -54,6 +53,6 @@ const SingleProductPage = ({ item }: any) => {
             </div>
         </section>
     );
-}
+};
 
 export default SingleProductPage;

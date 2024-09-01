@@ -8,8 +8,9 @@ import AddReviews from '@/components/AddReviews'
 import fetchingData from '@/data/FetchingData'
 import { apiData } from '@/types/interface'
 import React, { useEffect, useState } from 'react'
+import { ThemeProvider } from '@/components/ContextApi'
 
-const ProductPage = ({ params }: any) => {
+const ProductPage = ({ params}: any) => {
     const [item, setItem] = useState<any>({})
     useEffect(() => {
         const getData = async () => {
@@ -19,14 +20,14 @@ const ProductPage = ({ params }: any) => {
         getData()
     }, [])
     return (
-        <main>
-            <StyleComp heading='Shop Details' />
-            <SingleProductPage item={item} />
-            <ImagesSlide item={item} />
-            <ReviewsTabs item={item} />
-            <AddReviews item={item} />
-            <RelatedProduct item={item} />
-        </main>
+            <main>
+                <StyleComp heading='Shop Details' />
+                <SingleProductPage item={item} />
+                <ImagesSlide item={item} />
+                <ReviewsTabs item={item} />
+                <AddReviews item={item} />
+                <RelatedProduct item={item} />
+            </main>
     )
 }
 

@@ -12,10 +12,9 @@ export function ListMenu({ className }: { className?: string }) {
                 <div className="flex flex-col space-y-4 text-sm w-[200px]">
                     <HoveredLink href="/shop">Shop</HoveredLink>
                     <HoveredLink href="/shop/86">Shop Detail</HoveredLink>
-                    <HoveredLink href="/">WishList</HoveredLink>
-                    <HoveredLink href="/">Cart</HoveredLink>
-                    <HoveredLink href="/">Compare</HoveredLink>
-                    <HoveredLink href="/">CheckOut</HoveredLink>
+                    <HoveredLink href="/wish-list">WishList</HoveredLink>
+                    <HoveredLink href="/cart">Cart</HoveredLink>
+                    <HoveredLink href="/check-out">CheckOut</HoveredLink>
                 </div>
             </MenuItem>
             <Link href='/about'><MenuItem setActive={setActive} active={active} item="About">

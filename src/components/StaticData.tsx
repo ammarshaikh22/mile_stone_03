@@ -20,6 +20,7 @@ const StaticData = () => {
     const handleMenuTo = () => {
         setMenu(!menu);
     };
+
     return (
         <section className='relative my-28' onClick={() => {
             if (menu) {
@@ -87,10 +88,16 @@ const StaticData = () => {
                             {
                                 filterData.map((elem: any) => {
                                     return (
-                                        <div className='flex flex-col justify-center' key={elem.id}>
+                                        <div className='relative flex flex-col justify-center' key={elem.id}>
                                             <Link href={`/shop/${elem.id.toString()}`} >
-                                                <div className='bg-[#F4F4F4] md:w-[255px] w-full h-[330px] flex justify-center items-center'>
-                                                    <Image src={elem.thumbnail} alt='img' width={500} height={500} />
+                                                <div className='relative bg-[#F4F4F4] md:w-[255px] w-full h-[330px] flex justify-center items-center overflow-hidden'>
+                                                    <Image
+                                                        src={elem.thumbnail}
+                                                        alt='img'
+                                                        width={500}
+                                                        height={500}
+                                                        className='transition-transform duration-300 transform hover:scale-110'
+                                                    />
                                                 </div>
                                             </Link>
                                             <div className='mt-4 text-start'>
