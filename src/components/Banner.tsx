@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import { Button } from './ui/moving-border';
+import Link from 'next/link';
 const Banner = () => {
     const words = [
         {
@@ -21,7 +22,9 @@ const Banner = () => {
                         <h1 className='text-4xl md:text-7xl font-bold'>Perfect Fashion Unique Dress</h1>
                         <p className='max-w-[95%] md:max-w-[70%] text-gray-500 mt-6'>Our collection of unique dresses is designed to make you stand out, no matter the occasion. Whether you're looking for a chic evening gown, a trendy casual outfit, or something that perfectly reflects your personal style, you'll find it here. </p>
                         <div className='mt-6'>
-                            <Button borderRadius='1.75rem' className="bg-[#0F172A] dark:bg-slate-900 text-white dark:text-white border-neutral-200 dark:border-slate-800">Shop Now</Button>
+                            <Link href='/shop'>
+                                <Button borderRadius='1.75rem' className="bg-[#0F172A] dark:bg-slate-900 text-white dark:text-white border-neutral-200 dark:border-slate-800">Shop Now</Button>
+                            </Link>
                         </div>
                     </div>
                     <div className='relative mt-20 md:mt-32'>

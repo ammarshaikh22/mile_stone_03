@@ -62,10 +62,10 @@ const StaticData = () => {
                                 <div className='md:hidden block ml-4'>
                                     <SegmentIcon className='text-4xl' onClick={() => setMobileMenu(!mobileMenu)} />
                                 </div>
-                                {
-                                    mobileMenu ?
-                                        <div className={`p-6 overflow-scroll z-50 fixed top-0 right-0 h-full w-[80%] bg-gray-100 border transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "translate-x-full"
-                                            }`}>
+                                <div className={`p-6 overflow-scroll z-50 fixed top-0 right-0 h-full w-[80%] bg-gray-100 border transform transition-transform duration-300 ${mobileMenu ? "translate-x-0" : "translate-x-full"
+                                    }`}>
+                                    {
+                                        mobileMenu ?
                                             <div className='mt-10'>
                                                 <div className='max-w-[100%] mx-auto'>
                                                     <div className='flex justify-between items-center' onClick={() => setMobileMenu(!mobileMenu)}>
@@ -79,9 +79,9 @@ const StaticData = () => {
                                                         <Filtration setFilterData={setFilterData} setCount={setCount} />
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div> : null
-                                }
+                                            </div> : null
+                                    }
+                                </div>
                             </div>
                         </div>
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  justify-between gap-10 items-center'>
