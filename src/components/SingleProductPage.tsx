@@ -2,18 +2,18 @@ import Image from 'next/image';
 import React, { useContext } from 'react';
 import RatingStar from './RatingStar';
 import { ThemeContext } from './ContextApi';
+import { toast } from "sonner"
+import { Button } from "@/components/ui/button"
 
 const SingleProductPage = ({ item }: any) => {
     const { cart, setCart } = useContext(ThemeContext);
 
     if (!item || !Array.isArray(item.images)) {
-        console.error('Item or images array is undefined or not an array');
         return null;
     }
 
     const handleCard = () => {
         setCart([...cart, { ...item, quantity: 1 }]);
-        console.log('Item added to cart');
     };
     return (
         <section className='relative mt-32 mb-10'>
@@ -40,12 +40,18 @@ const SingleProductPage = ({ item }: any) => {
                             </div>
                         </div>
                         <div className='flex gap-6'>
-                            <button
-                                className='px-4 w-[160px] md:w-[200px] h-[60px] text-white bg-black rounded-sm hover:text-black hover:bg-transparent border border-black font-semibold'
-                                onClick={handleCard}
+                            <Button
+                                className='px-2 w-[250px] h-[60px] font-bold bg-black text-white border border-black '
+                                variant="outline"
+                                onClick={() => {
+                                    handleCard()
+                                    toast("Product Add Successfully")
+                                }
+                                }
                             >
                                 Add to Cart
-                            </button>
+                            </Button>
+
                         </div>
                         <p className='mt-8'>{item.stock} Pieces Available</p>
                     </div>

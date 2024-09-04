@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from './ContextApi';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'next/image';
+import { toast } from "sonner"
 
 const Table = () => {
   const { cart, setCart } = useContext(ThemeContext);
@@ -36,7 +37,13 @@ const Table = () => {
                     <td className="p-2 border">{elem.stock}</td>
                     <td className="p-2 border">${elem.price}</td>
                     <td className="p-2 border text-center">
-                      <button className="text-black" onClick={() => handleRemove(elem.id)}>
+                      <button className="text-black"
+                        onClick={() => {
+                          handleRemove(elem.id)
+                          toast("Product Remove Successfully")
+                        }
+                        }
+                      >
                         <CloseIcon />
                       </button>
                     </td>
