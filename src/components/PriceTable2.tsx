@@ -7,7 +7,7 @@ const PriceTable2 = () => {
     let price = cart.reduce((acc: any, curr: any) => acc + curr.price, 0)
     return (
         <section className='relative my-20'>
-            <div className='max-w-[36%] ml-8'>
+            <div className='md:max-w-[36%] md:ml-8 max-w-[94%] mx-auto'>
                 {
                     cart.length > 0 ?
                         <div>
