@@ -5,7 +5,6 @@ import Button from './Button';
 const PriceTable2 = () => {
     const { cart } = useContext(ThemeContext);
     let price = cart.reduce((acc: any, curr: any) => acc + curr.price, 0)
-    console.log(price)
     return (
         <section className='relative my-20'>
             <div className='max-w-[36%] ml-8'>

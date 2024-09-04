@@ -1,11 +1,8 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 const ImagesSlide = ({ item }: any) => {
-    const [isArray, setIsArray] = useState(false)
     if (!item || !Array.isArray(item.images)) {
-        console.error('Item or images array is undefined or not an array');
         return null;
     }
     let settings = {

@@ -1,4 +1,3 @@
-'use client'
 import { useState } from "react";
 import { HoveredLink, Menu, MenuItem } from "./ui/navbar-menu";
 import Link from "next/link";
