@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import RatingStar from './RatingStar';
 import { ThemeContext } from './ContextApi';
 import { toast } from "sonner"
-import { Button } from "@/components/ui/button"
 
 const SingleProductPage = ({ item }: any) => {
     const { cart, setCart } = useContext(ThemeContext);
@@ -40,9 +39,8 @@ const SingleProductPage = ({ item }: any) => {
                             </div>
                         </div>
                         <div className='flex gap-6'>
-                            <Button
+                            <button
                                 className='px-2 w-[250px] h-[60px] font-bold bg-black text-white border border-black '
-                                variant="outline"
                                 onClick={() => {
                                     handleCard()
                                     toast("Product Add Successfully")
@@ -50,7 +48,7 @@ const SingleProductPage = ({ item }: any) => {
                                 }
                             >
                                 Add to Cart
-                            </Button>
+                            </button>
 
                         </div>
                         <p className='mt-8'>{item.stock} Pieces Available</p>
