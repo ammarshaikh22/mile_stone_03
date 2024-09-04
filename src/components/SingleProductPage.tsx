@@ -40,7 +40,7 @@ const SingleProductPage = ({ item }: any) => {
                         </div>
                         <div className='flex gap-6'>
                             <button
-                                className='px-2 w-[250px] h-[60px] font-bold bg-black text-white border border-black '
+                                className='px-2 w-[250px] h-[60px] font-bold bg-black text-white border border-black hover:bg-transparent hover:text-black rounded-sm'
                                 onClick={() => {
                                     handleCard()
                                     toast("Product Add Successfully")
