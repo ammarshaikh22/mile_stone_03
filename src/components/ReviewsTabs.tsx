@@ -8,7 +8,7 @@ const ReviewsTabs = ({ item }: any) => {
         <section className='relative my-6'>
             <div className='max-w-[96%] mx-auto'>
                 <Tabs defaultValue="details" className="w-full">
-                    <TabsList className='mb-6 md:ml-6'>
+                    <TabsList className='mb-6 ml-6'>
                         <TabsTrigger value="description">Description</TabsTrigger>
                         <TabsTrigger value="reviews">Reviews</TabsTrigger>
                         <TabsTrigger value="details">Details</TabsTrigger>

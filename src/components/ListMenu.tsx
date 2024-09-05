@@ -8,7 +8,7 @@ export function ListMenu({ className }: { className?: string }) {
             <Link href='/'><MenuItem setActive={setActive} active={active} item="Home">
             </MenuItem></Link>
             <MenuItem setActive={setActive} active={active} item="Shop">
-                <div className="flex flex-col space-y-4 text-sm w-[200px]">
+                <div className="flex flex-col space-y-4 p-2 w-[160px]">
                     <HoveredLink href="/shop">Shop</HoveredLink>
                     <HoveredLink href="/shop/86">Shop Detail</HoveredLink>
                     <HoveredLink href="/cart">Cart</HoveredLink>
