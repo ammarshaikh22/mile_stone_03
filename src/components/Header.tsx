@@ -16,6 +16,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import MobileMenu from "./MobileMenu";
 import { data1, data2 } from "@/data/data";
 import SearchInputData from "./SearchInputData";
+import Component from "./SignIn";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,9 +69,7 @@ const Header = () => {
           </div>
           <div className="flex gap-12 items-center relative justify-center">
             <p className='after:absolute after:contents-[""] after:top-0 after:left-0 after:right-28 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
-              <Link href="/">
-                <PersonOutlineIcon /> Sign In
-              </Link>
+              <PersonOutlineIcon /> <Component />
             </p>
             <p className='after:absolute after:contents-[""] after:top-0 after:left-36 after:right-0 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
               <Link href="/">{name}</Link>
