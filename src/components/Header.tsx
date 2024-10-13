@@ -16,6 +16,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import MobileMenu from "./MobileMenu";
 import { data1, data2 } from "@/data/data";
 import SearchInputData from "./SearchInputData";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,6 +26,8 @@ const Header = () => {
   const [name2, setName2] = useState("USD");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false)
+  const [user, setUser] = useState(false)
+  const route = useRouter()
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -46,6 +50,19 @@ const Header = () => {
   const takeNamesTwo = (name: any) => {
     setName2(name);
   };
+  useEffect(() => {
+
+    const getUserData = async () => {
+      const res = await axios.get('/api/users/profile')
+      setUser(res.data.user?.isLogin)
+    }
+    getUserData()
+  }, [])
+  const handleLogout = async () => {
+    const res = await axios.post('/api/users/logout')
+    alert('Logout successfully')
+    route.push('/login')
+  }
   return (
     <header
       className="relative"
@@ -60,15 +77,18 @@ const Header = () => {
         <div className='md:flex hidden justify-between items-center after:absolute after:contents-[""] after:top-10 after:left-0 after:bottom-0 after:right-0 after:mx-auto after:w-full after:h-[1px] after:bg-slate-200 py-3'>
           <div className="flex gap-8 items-center relative">
             <p className='after:absolute after:contents-[""] after:top-0 after:left-0 after:right-6 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-300 text-base'>
-              <Link href="/">About Us</Link>
+              <Link href="/about">About Us</Link>
             </p>
             <p>
-              <Link href="/">My Account</Link>
+              <Link href="/profile">My Account</Link>
             </p>
           </div>
           <div className="flex gap-12 items-center relative justify-center">
             <p className='after:absolute after:contents-[""] after:top-0 after:left-0 after:right-28 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
-              <PersonOutlineIcon /> Sign In
+              <PersonOutlineIcon />
+              {
+                user ? <span className="cursor-pointer" onClick={handleLogout}>Logout</span> : <Link href='/login'>Login</Link>
+              }
             </p>
             <p className='after:absolute after:contents-[""] after:top-0 after:left-36 after:right-0 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
               <Link href="/">{name}</Link>
