@@ -7,15 +7,15 @@ connect()
 export const POST = async (req: NextRequest) => {
     try {
         const request = await req.json()
-        const { email, newPasssword, confirmPassword } = request
+        const { email, newPassword, confirmPassword } = request
         const user = await User.findOne({ email })
         if (!user) {
             return NextResponse.json({ message: "user not found" }, { status: 404 })
         }
-        if (newPasssword !== confirmPassword) {
+        if (confirmPassword !== newPassword) {
             return NextResponse.json({ message: "password not matched" }, { status: 400 })
         }
-        const hashedPassword = await bcryptjs.hash(newPasssword, 10)
+        const hashedPassword = await bcryptjs.hash(newPassword, 10)
         user.password = hashedPassword
         await user.save()
         await sendMail({ email: email, emailType: 'RESET', userId: user._id.toString() })

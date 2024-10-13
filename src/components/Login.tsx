@@ -18,10 +18,10 @@ const LoginPage = () => {
         email: '',
         password: ''
     })
+    const [counter, setCounter] = useState(0)
     const [button, setButton] = useState(false)
     const route = useRouter()
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
     const handleLogin = async (e: any) => {
         e.preventDefault();
         try {
@@ -33,6 +33,7 @@ const LoginPage = () => {
             route.push('/')
         } catch (error: any) {
             alert(error.message)
+            setCounter(counter + 1)
         } finally {
             setLoading(false)
         }
@@ -78,6 +79,7 @@ const LoginPage = () => {
                             <BottomGradient />
                         </button> : null
                 }
+                <h6 className='text-center text-sm my-2'><Link href='/forgot-password'>{counter >= 3 ? 'forgotPassword' : ''}</Link></h6>
                 <h2 className='text-center'>No account? <Link className="text-blue-500 cursor-pointer" href="/signup">Sign Up</Link></h2>
             </form>
         </div>
