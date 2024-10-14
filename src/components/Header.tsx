@@ -57,7 +57,7 @@ const Header = () => {
       setUser(res.data.user?.isLogin)
     }
     getUserData()
-  }, [])
+  }, [user, setUser])
   const handleLogout = async (e: any) => {
     e.preventDefault()
     const res = await axios.post('/api/users/logout')
