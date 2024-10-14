@@ -1,6 +1,7 @@
 'use client'
 import { Input } from '@/components/ui/input'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 const ForgotPassword = () => {
     const [user, setUser] = useState({
@@ -8,9 +9,11 @@ const ForgotPassword = () => {
         newPassword: "",
         confirmPassword: ""
     })
+    const route = useRouter()
     const handlePassword = async () => {
         try {
             const res = await axios.post('/api/users/forgotpassword', user)
+            route.push('/login')
         } catch (error: any) {
             alert(error.message)
             console.log(error)
