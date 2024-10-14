@@ -1,5 +1,6 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchIcon from "@mui/icons-material/Search";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -8,6 +9,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import {
     Accordion,
     AccordionContent,
@@ -16,7 +18,24 @@ import {
 } from "@/components/ui/accordion"
 import Link from 'next/link';
 import SearchInputData from './SearchInputData';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 const MobileMenu = ({ setMobileMenu }: any) => {
+    const [user, setUser] = useState(false)
+    const route = useRouter()
+    useEffect(() => {
+
+        const getUserData = async () => {
+            const res = await axios.get('/api/users/profile')
+            setUser(res.data.user?.isLogin)
+        }
+        getUserData()
+    }, [])
+    const handleLogout = async () => {
+        const res = await axios.post('/api/users/logout')
+        alert('Logout successfully')
+        route.push('/login')
+    }
     return (
         <div className='flex flex-col justify-start items-start gap-8 '>
             <div>
@@ -85,6 +104,14 @@ const MobileMenu = ({ setMobileMenu }: any) => {
                 <div className="relative">
                     <Link href="/"><TwitterIcon /></Link>
                 </div>
+            </div>
+            <div className='flex justify-center items-center gap-2'>
+                <PersonOutlineIcon />
+                <p className='cursor-pointer'>
+                    {
+                        user ? <span className="cursor-pointer text-xl" onClick={handleLogout}>Logout</span> : <Link href='/login' className='text-xl'>Login</Link>
+                    }
+                </p>
             </div>
         </div>
     )

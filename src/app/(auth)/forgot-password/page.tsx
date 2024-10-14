@@ -1,10 +1,7 @@
 'use client'
 import { Input } from '@/components/ui/input'
 import axios from 'axios'
-import { AnyAaaaRecord } from 'dns'
-import Email from 'next-auth/providers/email'
 import React, { useState } from 'react'
-
 const ForgotPassword = () => {
     const [user, setUser] = useState({
         email: "",
