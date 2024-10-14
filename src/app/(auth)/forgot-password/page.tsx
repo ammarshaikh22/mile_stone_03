@@ -27,7 +27,7 @@ const ForgotPassword = () => {
                     <Input type='email' placeholder='Enter your email' name='email' onChange={(e: any) => setUser({ ...user, email: e.target.value })} value={user.email} />
                     <Input type='password' placeholder='Enter new password' name='newPassword' onChange={(e: any) => setUser({ ...user, newPassword: e.target.value })} value={user.newPassword} />
                     <Input type='password' placeholder='Enter confirm password' name='confirmPassword' onChange={(e: any) => setUser({ ...user, confirmPassword: e.target.value })} value={user.confirmPassword} />
-                    <button onClick={handlePassword}>Submit</button>
+                    <button onClick={handlePassword} className='px-4 py-2 bg-black text-white'>Submit</button>
                 </div>
             </div>
         </section>
