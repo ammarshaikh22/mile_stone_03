@@ -58,7 +58,8 @@ const Header = () => {
     }
     getUserData()
   }, [])
-  const handleLogout = async () => {
+  const handleLogout = async (e: any) => {
+    e.preventDefault()
     const res = await axios.post('/api/users/logout')
     alert('Logout successfully')
     route.push('/login')
