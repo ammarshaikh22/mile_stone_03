@@ -9,6 +9,9 @@ export const POST = async (req: NextRequest) => {
     try {
         const request = await req.json()
         const { email, password } = request
+        if (!email && !password) {
+            return NextResponse.json({ message: "invalid credentials" }, { status: 404 })
+        }
         const user = await User.findOne({ email })
         if (!user) {
             return NextResponse.json({ message: "user not found" }, { status: 404 })
