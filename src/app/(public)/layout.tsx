@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ fontFamily: "sans-serif" }}>
+      <body style={{ fontFamily: "sans-serif" }} suppressHydrationWarning={true}>
         <SessionProviderPage>
           <ThemeProvider>
             <Header />

@@ -27,9 +27,11 @@ const LoginPage = () => {
                 alert('Please fill in all the fields')
             }
             const res = await axios.post('/api/users/login', userData)
+            if (res.status === 404) {
+                alert(res.data.message)
+            }
             route.push('/')
         } catch (error: any) {
-            alert(error.message)
             setCounter(counter + 1)
         } finally {
             setLoading(false)

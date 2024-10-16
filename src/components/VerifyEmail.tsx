@@ -11,9 +11,11 @@ import {
 } from "@/components/ui/card"
 import { Input } from './ui/input'
 import { Button } from './ui/button'
+import { useRouter } from 'next/navigation'
 
 const VerifyEmail = () => {
     const [token, setToken] = useState("")
+    const route = useRouter()
     useEffect(() => {
         const token = window.location.search.split("=")[1]
         setToken(token)
@@ -22,6 +24,7 @@ const VerifyEmail = () => {
         const res = await axios.post('/api/users/verifyemail', { token })
         if (res.status === 200) {
             alert('Email verified successfully')
+            route.push('/login')
         }
     }
     return (

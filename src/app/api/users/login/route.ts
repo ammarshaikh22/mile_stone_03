@@ -17,10 +17,12 @@ export const POST = async (req: NextRequest) => {
             return NextResponse.json({ message: "user not found" }, { status: 404 })
         }
         const decodePass = await bcryptjs.compare(password, user.password)
-        if (!decodePass || !user.isverify) {
-            return NextResponse.json({ message: "invalid credentials" }, { status: 401 })
+        if (!decodePass) {
+            return NextResponse.json({ message: "password not matched" }, { status: 404 })
         }
-
+        if (!user.isverify) {
+            return NextResponse.json({ message: "please verify your email" }, { status: 404 })
+        }
         const dataToken = {
             id: user._id
         }
