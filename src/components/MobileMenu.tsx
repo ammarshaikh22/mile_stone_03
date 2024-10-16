@@ -24,16 +24,17 @@ const MobileMenu = ({ setMobileMenu }: any) => {
     const [user, setUser] = useState(false)
     const route = useRouter()
     useEffect(() => {
-
         const getUserData = async () => {
             const res = await axios.get('/api/users/profile')
             setUser(res.data.user?.isLogin)
         }
         getUserData()
     }, [])
-    const handleLogout = async () => {
+    const handleLogout = async (e: any) => {
+        e.preventDefault()
         const res = await axios.post('/api/users/logout')
         alert('Logout successfully')
+        setUser(false)
         route.push('/login')
     }
     return (
@@ -110,9 +111,9 @@ const MobileMenu = ({ setMobileMenu }: any) => {
             </div>
             <div className='flex justify-center items-center gap-2'>
                 <PersonOutlineIcon />
-                <p className='cursor-pointer'>
+                <p className='after:absolute after:contents-[""] after:top-0 after:left-0 after:right-28 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
                     {
-                        user ? <span className="cursor-pointer text-xl" onClick={handleLogout}>Logout</span> : <Link href='/login' className='text-xl'>Login</Link>
+                        user ? <span className="cursor-pointer" onClick={handleLogout}>Logout</span> : <span className="cursor-pointer"><Link href='/login'>Login</Link></span>
                     }
                 </p>
             </div>

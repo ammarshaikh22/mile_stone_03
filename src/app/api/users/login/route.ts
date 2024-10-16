@@ -16,9 +16,6 @@ export const POST = async (req: NextRequest) => {
         if (!user) {
             return NextResponse.json({ message: "user not found" }, { status: 404 })
         }
-        if (user.isLogin) {
-            return NextResponse.json({ message: "user already login" }, { status: 400 })
-        }
         const decodePass = await bcryptjs.compare(password, user.password)
         if (!decodePass || !user.isverify) {
             return NextResponse.json({ message: "invalid credentials" }, { status: 401 })
