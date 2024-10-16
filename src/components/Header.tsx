@@ -51,17 +51,17 @@ const Header = () => {
     setName2(name);
   };
   useEffect(() => {
-
     const getUserData = async () => {
       const res = await axios.get('/api/users/profile')
       setUser(res.data.user?.isLogin)
     }
     getUserData()
-  }, [user, setUser])
+  }, [])
   const handleLogout = async (e: any) => {
     e.preventDefault()
     const res = await axios.post('/api/users/logout')
     alert('Logout successfully')
+    setUser(false)
     route.push('/login')
   }
   return (
@@ -88,7 +88,7 @@ const Header = () => {
             <p className='after:absolute after:contents-[""] after:top-0 after:left-0 after:right-28 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>
               <PersonOutlineIcon />
               {
-                user ? <span className="cursor-pointer" onClick={handleLogout}>Logout</span> : <Link href='/login'>Login</Link>
+                user ? <span className="cursor-pointer" onClick={handleLogout}>Logout</span> : <span className="cursor-pointer"><Link href='/login'>Login</Link></span>
               }
             </p>
             <p className='after:absolute after:contents-[""] after:top-0 after:left-36 after:right-0 after:mx-auto after:w-[1px] after:h-5 after:bg-slate-200'>

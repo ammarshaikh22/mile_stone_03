@@ -69,6 +69,9 @@ const MobileMenu = ({ setMobileMenu }: any) => {
                     <AccordionItem value="item-4">
                         <AccordionTrigger><Link href="/contact" onClick={() => setMobileMenu(false)}>Contact</Link></AccordionTrigger>
                     </AccordionItem>
+                    <AccordionItem value="item-5">
+                        <AccordionTrigger><Link href="/profile" onClick={() => setMobileMenu(false)}>Profile</Link></AccordionTrigger>
+                    </AccordionItem>
                 </Accordion>
             </div>
             <div className="flex items-center gap-5">

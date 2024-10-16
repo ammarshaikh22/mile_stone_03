@@ -8,11 +8,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader";
-import { ToastAction } from './ui/toast';
-import { useToast } from "@/hooks/use-toast"
 import Link from 'next/link';
 const LoginPage = () => {
-    const { toast } = useToast()
     const [showPassword, setShowPassword] = useState(false);
     const [userData, setUserData] = useState({
         email: '',

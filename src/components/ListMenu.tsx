@@ -19,8 +19,6 @@ export function ListMenu({ className }: { className?: string }) {
             </MenuItem></Link>
             <Link href='/contact'><MenuItem setActive={setActive} active={active} item="Contact">
             </MenuItem></Link>
-            <Link href='/profile'><MenuItem setActive={setActive} active={active} item="Profile">
-            </MenuItem></Link>
         </Menu>
     );
 }
