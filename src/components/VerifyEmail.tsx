@@ -21,10 +21,14 @@ const VerifyEmail = () => {
         setToken(token)
     }, [token])
     const handleSubmit = async () => {
-        const res = await axios.post('/api/users/verifyemail', { token })
-        if (res.status === 200) {
-            alert('Email verified successfully')
-            route.push('/login')
+        try {
+            const res = await axios.post('/api/users/verifyemail', { token })
+            if (res.status === 200) {
+                alert('Email verified successfully')
+                route.push('/login')
+            }
+        } catch (error: any) {
+            alert(error.response.data.message)
         }
     }
     return (

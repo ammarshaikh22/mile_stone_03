@@ -6,7 +6,7 @@ connect();
 
 export const POST = async (req: NextRequest) => {
     try {
-        const token = req.cookies.get('token')?.value;
+        const token = req.cookies.get('token')?.value || ''
         if (!token) {
             return NextResponse.json({ message: 'No token provided' }, { status: 400 });
         }

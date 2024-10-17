@@ -9,8 +9,12 @@ const UserProfile = () => {
     })
     useEffect(() => {
         const getData = async () => {
-            const res = await axios.get('/api/users/profile')
-            setUser(res.data.user)
+            try {
+                const res = await axios.get('/api/users/profile')
+                setUser(res.data.user)
+            } catch (error: any) {
+                alert(error.response.data.message)
+            }
         }
         getData()
     }, [])

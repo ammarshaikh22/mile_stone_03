@@ -59,10 +59,14 @@ const Header = () => {
   }, [])
   const handleLogout = async (e: any) => {
     e.preventDefault()
-    const res = await axios.post('/api/users/logout')
-    alert('Logout successfully')
-    setUser(false)
-    route.push('/login')
+    try {
+      const res = await axios.post('/api/users/logout')
+      alert('Logout successfully')
+      setUser(false)
+      route.push('/login')
+    } catch (error: any) {
+      alert(error.response.data.message)
+    }
   }
   return (
     <header

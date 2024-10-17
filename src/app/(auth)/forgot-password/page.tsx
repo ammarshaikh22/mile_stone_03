@@ -15,8 +15,7 @@ const ForgotPassword = () => {
             const res = await axios.post('/api/users/forgotpassword', user)
             route.push('/login')
         } catch (error: any) {
-            alert(error.message)
-            console.log(error)
+            alert(error.response.data.message)
         }
     }
     return (

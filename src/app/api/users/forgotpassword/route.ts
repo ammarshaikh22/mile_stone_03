@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest) => {
             return NextResponse.json({ message: "user not found" }, { status: 404 })
         }
         if (confirmPassword !== newPassword) {
-            return NextResponse.json({ message: "password not matched" }, { status: 400 })
+            return NextResponse.json({ message: "confirm password not matched" }, { status: 404 })
         }
         const hashedPassword = await bcryptjs.hash(newPassword, 10)
         user.password = hashedPassword

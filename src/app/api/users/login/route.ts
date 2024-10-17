@@ -19,8 +19,7 @@ export const POST = async (req: NextRequest) => {
         const decodePass = await bcryptjs.compare(password, user.password)
         if (!decodePass) {
             return NextResponse.json({ message: "password not matched" }, { status: 404 })
-        }
-        if (!user.isverify) {
+        } else if (!user.isverify) {
             return NextResponse.json({ message: "please verify your email" }, { status: 404 })
         }
         const dataToken = {

@@ -26,12 +26,9 @@ const SignUp = () => {
                 alert('Please fill in all the fields')
             }
             const res = await axios.post('/api/users/signup', userData)
-            if (res.status === 400) {
-                alert(res.data.message)
-            }
             route.push('/login')
         } catch (error: any) {
-            console.log(error.message)
+            alert(error.response.data.message)
         } finally {
             setLoading(false)
         }
