@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 
 interface CartContextType {
     cart: any[];
@@ -12,6 +12,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [cart, setCart] = useState<any[]>([]);
     return (
         <ThemeContext.Provider value={{ cart, setCart }}>
+            
             {children}
         </ThemeContext.Provider>
     );

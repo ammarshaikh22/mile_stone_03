@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <section className='relative'>
       <StyleComp heading='Profile' />
-      <UserProfile/>
+      <UserProfile />
     </section>
   )
 }
